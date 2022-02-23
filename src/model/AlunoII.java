@@ -3,6 +3,8 @@ package model;
 import java.util.ArrayList;
 import java.util.List;
 
+import main.DisciplinaLista;
+
 public class AlunoII {
 	private String nome;
 	private int idade;
@@ -77,15 +79,10 @@ public class AlunoII {
 	public void setSerieMatriculado(String serieMatriculado) {
 		this.serieMatriculado = serieMatriculado;
 	}
+	//Criando lista de disciplinas e notas
+	private List<DisciplinaLista> disciplinas = new ArrayList <DisciplinaLista>();
 	
-	private List<Disciplina> disciplinas = new ArrayList <Disciplina>();
 	
-	public void setDisciplinas(List<Disciplina> disciplinas) {
-		this.disciplinas = disciplinas;
-	}
-	public List<Disciplina> getDisciplinas() {
-		return disciplinas;
-	}
 	@Override
 	public int hashCode() {
 		final int prime = 31;
