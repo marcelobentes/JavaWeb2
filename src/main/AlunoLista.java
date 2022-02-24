@@ -131,7 +131,7 @@ public class AlunoLista {
 		double somaNotas = 0.0;
 		
 		for (DisciplinaLista disciplina : disciplinas) {
-			somaNotas = disciplina.getNota();
+			somaNotas += disciplina.getNota();
 		}
 		
 		return somaNotas /disciplinas.size();
@@ -140,12 +140,17 @@ public class AlunoLista {
 	
 	
 	
-	public boolean getResultado() {
+	public String getResultado() {
 		double media = this.getMedianota();
-		if (media >= 70.0) {
-			return true;
+		if (media >= 50.0) {
+			if(media >= 70) {
+				return "Aluno Aprovado.";				
+			}else {
+				return "Aluno em Recuperação.";
+			}
+				
 		}else {
-				return false;
+				return "Aluno Reprovado.";
 		}
 	}
 

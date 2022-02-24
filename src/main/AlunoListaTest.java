@@ -1,12 +1,19 @@
 package main;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.swing.JOptionPane;
 
 public class AlunoListaTest {
 	public static void main(String[] args) {
 	
+	List<AlunoLista> alunos = new ArrayList<AlunoLista>();	
+		
+	for(int qtd = 1; qtd <= 2; qtd++) {
+		
 	AlunoLista aluno = new AlunoLista();
-	String nome = JOptionPane.showInputDialog("Informe o nome: ");
+	String nome = JOptionPane.showInputDialog("Informe o nome aluno "+qtd+": ");
 	String escola = JOptionPane.showInputDialog("Informe a escola: ");
 	String pai = JOptionPane.showInputDialog("Informe o nome do pai: ");
 	String mae = JOptionPane.showInputDialog("Informe o nome da m�e: ");
@@ -16,14 +23,7 @@ public class AlunoListaTest {
 	String cpf = JOptionPane.showInputDialog("Informe o CPF: ");
 	String rg = JOptionPane.showInputDialog("Informe o RG: ");
 	String serie = JOptionPane.showInputDialog("Informe a serie: ");
-	/*String disciplina1 = JOptionPane.showInputDialog("Informe a disciplina1: ");
-	String nota1 = JOptionPane.showInputDialog("Informe o nota1: ");
-	String disciplina2 = JOptionPane.showInputDialog("Informe a disciplina2: ");
-	String nota2 = JOptionPane.showInputDialog("Informe o nota2: ");
-	String disciplina3 = JOptionPane.showInputDialog("Informe a disciplina3: ");
-	String nota3 = JOptionPane.showInputDialog("Informe o nota3: ");
-	String disciplina4 = JOptionPane.showInputDialog("Informe a disciplina4: ");
-	String nota4 = JOptionPane.showInputDialog("Informe o nota4: ");*/
+	
 	
 	
 	aluno.setNome(nome);
@@ -37,33 +37,38 @@ public class AlunoListaTest {
 	aluno.setRg(rg);
 	aluno.setSerieMatriculado(serie);
 	
-	DisciplinaLista disciplina1 = new DisciplinaLista ();
-	disciplina1.setDisciplina("Português");
-	disciplina1.setNota(90.0);
+	for(int posicao =1; posicao <= 4; posicao ++) {
+		String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina "+posicao+" ?");
+		String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina "+posicao+" ?");
+		
+		DisciplinaLista disciplina = new DisciplinaLista();
+		disciplina.setDisciplina(nomeDisciplina);
+		disciplina.setNota(Double.valueOf(notaDisciplina));
+		
+		aluno.getDisciplinas().add(disciplina);
 	
-	DisciplinaLista disciplina2 = new DisciplinaLista();
-	disciplina2.setDisciplina("Matematica");
-	disciplina2.setNota(89.0);
-	
-	DisciplinaLista disciplina3 = new DisciplinaLista();
-	disciplina3.setDisciplina("Fisica");
-	disciplina3.setNota(78.0);
-	
-	DisciplinaLista disciplina4 = new DisciplinaLista();
-	disciplina4.setDisciplina("Quimica");
-	disciplina4.setNota(65.5);
-	
-	aluno.getDisciplinas().add(disciplina1);
-	aluno.getDisciplinas().add(disciplina2);
-	aluno.getDisciplinas().add(disciplina3);
-	aluno.getDisciplinas().add(disciplina4);
+	}
+	//Removendo disciplina
+	int escolha =JOptionPane.showConfirmDialog(null, "Deseja remover alguma disciplia ?");
+	// 0 = a sim e 1 = a não
+	if(escolha == 0) {
+		String removerDisciplina = JOptionPane.showInputDialog("Qual disciplina remover ? 1, 2, 3 ou 4 ?");
+		aluno.getDisciplinas().remove(Integer.valueOf(removerDisciplina).intValue() -1);
+	}
 	
 	
+	alunos.add(aluno);
+	
+	}
+	
+	for (AlunoLista alunoLista : alunos) {
+		System.out.println(alunoLista);
+		System.out.println("Media do Aluno: " + alunoLista.getMedianota());
+		System.out.println("Resultado: "+alunoLista.getResultado());
+		System.out.println("------------------------------------");
+	}
 	
 	
-	System.out.println(aluno);
-	System.out.println("Media do Aluno: " + aluno.getMedianota());
-	System.out.println("Resultado: "+aluno.getResultado());
 }
 	
 	
