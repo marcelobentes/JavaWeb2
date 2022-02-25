@@ -3,6 +3,8 @@ package main;
 import java.util.ArrayList;
 import java.util.List;
 
+import constantes.StatusAluno;
+
 public class AlunoLista {
 	private String nome;
 	private int idade;
@@ -144,13 +146,13 @@ public class AlunoLista {
 		double media = this.getMedianota();
 		if (media >= 50.0) {
 			if(media >= 70) {
-				return "Aluno Aprovado.";				
+				return StatusAluno.APROVADO;				
 			}else {
-				return "Aluno em Recuperação.";
+				return StatusAluno.RECUPERACAO;
 			}
 				
 		}else {
-				return "Aluno Reprovado.";
+				return StatusAluno.REPROVADO;
 		}
 	}
 

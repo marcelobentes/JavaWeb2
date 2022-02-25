@@ -10,7 +10,7 @@ public class AlunoListaTest {
 	
 	List<AlunoLista> alunos = new ArrayList<AlunoLista>();	
 		
-	for(int qtd = 1; qtd <= 2; qtd++) {
+	for(int qtd = 1; qtd <= 1; qtd++) {
 		
 	AlunoLista aluno = new AlunoLista();
 	String nome = JOptionPane.showInputDialog("Informe o nome aluno "+qtd+": ");
@@ -37,7 +37,7 @@ public class AlunoListaTest {
 	aluno.setRg(rg);
 	aluno.setSerieMatriculado(serie);
 	
-	for(int posicao =1; posicao <= 4; posicao ++) {
+	for(int posicao =1; posicao <= 1; posicao ++) {
 		String nomeDisciplina = JOptionPane.showInputDialog("Nome da Disciplina "+posicao+" ?");
 		String notaDisciplina = JOptionPane.showInputDialog("Nota da Disciplina "+posicao+" ?");
 		
@@ -60,12 +60,38 @@ public class AlunoListaTest {
 	alunos.add(aluno);
 	
 	}
-	
-	for (AlunoLista alunoLista : alunos) {
-		System.out.println(alunoLista);
-		System.out.println("Media do Aluno: " + alunoLista.getMedianota());
-		System.out.println("Resultado: "+alunoLista.getResultado());
+	//pesquisando lista pelo index
+	for (int pos =0; pos < alunos.size(); pos ++) {
+		
+		AlunoLista aluno = alunos.get(pos);
+		
+		//substituindo um aluno encontrado na lista
+		if (aluno.getNome().equalsIgnoreCase("Marcelo")) {
+			AlunoLista subtituirAluno = new AlunoLista ();
+			subtituirAluno.setNome("Aluno trocado.");
+			
+			DisciplinaLista disciplina = new DisciplinaLista ();
+			
+			disciplina.setDisciplina("Fisica");
+			disciplina.setNota(80.0);
+			
+			//adicionando a disciplina na lista.
+			subtituirAluno.getDisciplinas().add(disciplina);
+			
+			alunos.set(pos, subtituirAluno);
+			aluno = alunos.get(pos);
+		}
+				
+				
+		System.out.println("Aluno: "+aluno.getNome());
+		System.out.println("Media do Aluno: " + aluno.getMedianota());
+		System.out.println("Resultado: "+aluno.getResultado());
 		System.out.println("------------------------------------");
+		
+		for (int posd =0; posd < aluno.getDisciplinas().size(); posd ++) {
+			DisciplinaLista discipl = aluno.getDisciplinas().get(posd);
+			System.out.println("Materia = "+discipl.getDisciplina()+" Nota = "+discipl.getNota());
+		}
 	}
 	
 	
