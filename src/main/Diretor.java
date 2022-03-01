@@ -1,14 +1,10 @@
 package main;
 
-import interfaces.PermitirAcesso;
-
-public class Diretor extends Pessoa implements PermitirAcesso{
+public class Diretor extends Pessoa{
 	
 	private String registroEducacao;
 	private int tempoDirecao;
 	private String titulacao;
-	
-	
 	public String getRegistroEducacao() {
 		return registroEducacao;
 	}
@@ -26,15 +22,6 @@ public class Diretor extends Pessoa implements PermitirAcesso{
 	}
 	public void setTitulacao(String titulacao) {
 		this.titulacao = titulacao;
-	}
-	
-	
-	
-	
-	/*Métode de interface */
-	public boolean autenticar (String login, String senha) {
-		
-		return login.equals("admin") && senha.equals("admin");
 	}
 
 	
