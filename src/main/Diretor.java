@@ -9,6 +9,10 @@ public class Diretor extends Pessoa implements PermitirAcesso{
 	private String titulacao;
 	
 	
+	public Diretor(String login, String senha) {
+
+
+	}
 	public String getRegistroEducacao() {
 		return registroEducacao;
 	}
@@ -35,6 +39,11 @@ public class Diretor extends Pessoa implements PermitirAcesso{
 	public boolean autenticar (String login, String senha) {
 		
 		return login.equals("admin") && senha.equals("admin");
+	}
+	@Override
+	public boolean autenticar() {
+		// TODO Auto-generated method stub
+		return autenticar("admin", "admin");
 	}
 
 	

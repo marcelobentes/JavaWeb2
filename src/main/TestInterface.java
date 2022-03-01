@@ -2,6 +2,7 @@ package main;
 
 import javax.swing.JOptionPane;
 
+import classesAuxiliares.FuncaoAutenticar;
 import interfaces.PermitirAcesso;
 
 public class TestInterface {
@@ -11,9 +12,11 @@ public class TestInterface {
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
 		
-		PermitirAcesso diretor = new Diretor ();
+		FuncaoAutenticar funcaoautenticar = new FuncaoAutenticar ();
 		
-		if(diretor.autenticar(login, senha)) {
+		PermitirAcesso permitiAcesso = new Diretor (login, senha);
+		
+		if(funcaoautenticar.autenticar(permitiAcesso)) {
 			JOptionPane.showInternalMessageDialog(null,"Acesso permitido...");
 		}else {
 			JOptionPane.showInternalMessageDialog(null,"Acesso Negado...");
