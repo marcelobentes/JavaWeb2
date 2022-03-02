@@ -9,10 +9,13 @@ public class TestInterface {
 
 	/* Usando interfaces melhorando.*/
 	public static void main(String[] args) {
+		
+		try {
+			
 		String login = JOptionPane.showInputDialog("Informe o login:");
 		String senha = JOptionPane.showInputDialog("Informe a senha:");
 		
-		FuncaoAutenticar funcaoautenticar = new FuncaoAutenticar ();
+		FuncaoAutenticar funcaoautenticar = null;
 		
 		PermitirAcesso permitiAcesso = new Diretor (login, senha);
 		
@@ -23,8 +26,13 @@ public class TestInterface {
 		}
 		
 		
-	
+		
+			//Tratando Exception
+		} catch (Exception e) {
+			e.printStackTrace();//Imprimi o erro no console
+			JOptionPane.showInternalMessageDialog(null, "Erro de autenticação.");
 
 	}
 
+}
 }
