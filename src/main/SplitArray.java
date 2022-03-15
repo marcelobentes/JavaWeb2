@@ -8,9 +8,10 @@ public class SplitArray {
 	public static void main(String[] args) {
 		//convertendo um texto Split em array
 		
-		String texto = "Marcelo, Curso Java, 70, 86, 75";
+		String texto = " Marcelo, Curso Java, 70, 86, 75";
 		String [] valoresArray = texto.split(",");
 		
+		System.out.println("=====Conversão de texto para Split======");
 		System.out.println("Nome: "+ valoresArray[0]);
 		System.out.println("Curso: "+ valoresArray[1]);
 		System.out.println("Nota 1: "+ valoresArray[2]);
