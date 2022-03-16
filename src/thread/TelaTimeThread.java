@@ -5,6 +5,10 @@ import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -28,6 +32,49 @@ public class TelaTimeThread extends JDialog{
 	private JTextField mostraTempo2 = new JTextField();
 	private JButton jButton = new JButton("Start"); //adicionando botão
 	private JButton jButton2 = new JButton("Stop"); //adicionando botão
+	
+	private Runnable thread1 = new Runnable() {//metodo de thread
+		
+		@Override
+		public void run() {
+			while(true) {
+				//instanciando para mostrar a data e hora atual
+			mostraTempo.setText(new SimpleDateFormat("dd/MM/yyyy hh:mm.ss")
+					.format(Calendar.getInstance().getTime()));
+			
+			try {
+				Thread.sleep(2000);
+			} catch (InterruptedException e) {
+				
+				e.printStackTrace();
+			}
+			
+			}
+			
+		}
+	};
+	
+	private Runnable thread2 = new Runnable() {//metodo da Thread
+		
+		@Override
+		public void run() {
+			while(true) {
+				//instanciando para mostrar a data e hora atual
+				mostraTempo2.setText(new SimpleDateFormat("dd-MM-yyyy hh:mm:ss")
+						.format(Calendar.getInstance().getTime()));
+				
+				try {
+					Thread.sleep(2000);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+			
+		}
+	};
+	
+	private Thread thread1Time;
+	private Thread thread2Time;
 	
 	
 	
@@ -72,6 +119,35 @@ public class TelaTimeThread extends JDialog{
 		jButton2.setPreferredSize(new Dimension(92, 25));
 		gridBagConstraints.gridx ++;
 		jPanel.add(jButton2, gridBagConstraints);
+		
+		jButton.addActionListener(new ActionListener() {//adionando ação Start no botão
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				thread1Time = new Thread (thread1);
+				thread2Time = new Thread(thread2);
+				thread1Time.start();
+				thread2Time.start();
+				
+				jButton.setEnabled(false);//desabilitando o start
+				jButton2.setEnabled(true);//habilitando o stop
+				
+			}
+		});
+		
+		jButton2.addActionListener(new ActionListener() {
+			
+			@SuppressWarnings("deprecation")
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				thread1Time.stop();
+				thread2Time.stop();
+				
+				jButton.setEnabled(true);//habilitando o start
+				jButton2.setEnabled(false);//desabilitando o stop
+			}
+		} );
 		
 		add (jPanel, BorderLayout.WEST); //adicionando ao derLayout
 		
