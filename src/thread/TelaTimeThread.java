@@ -4,7 +4,9 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.Insets;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -24,6 +26,10 @@ public class TelaTimeThread extends JDialog{
 	
 	private JLabel descricaoHora2 = new JLabel("Time Thread 2");
 	private JTextField mostraTempo2 = new JTextField();
+	private JButton jButton = new JButton("Start"); //adicionando botão
+	private JButton jButton2 = new JButton("Stop"); //adicionando botão
+	
+	
 	
 	public TelaTimeThread () {
 		setTitle("Minha tela de time com Thread");//exibi o titulo
@@ -34,12 +40,18 @@ public class TelaTimeThread extends JDialog{
 		GridBagConstraints gridBagConstraints = new GridBagConstraints();//controlador de posicionamento de componentes
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
+		gridBagConstraints.gridwidth = 2; /*iniciando o tamanho do grid para 2
+		 para ficar o tempo da thread em duas colunas*/
+		gridBagConstraints.insets = new Insets(5, 10, 5, 5);/*setando os top, bottom,
+		left e right na tela */
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		
 		descricaoHora.setPreferredSize(new Dimension(200, 25));
 		jPanel.add(descricaoHora, gridBagConstraints); //adicionando ao painel
 		
 		gridBagConstraints.gridy ++;
 		mostraTempo.setPreferredSize(new Dimension(200,25));
+		mostraTempo.setEditable(false);//desabilitar editar o campo
 		jPanel.add(mostraTempo, gridBagConstraints);
 		
 		gridBagConstraints.gridy++;
@@ -48,7 +60,18 @@ public class TelaTimeThread extends JDialog{
 		
 		gridBagConstraints.gridy++;
 		mostraTempo2.setPreferredSize(new Dimension(200,25));
+		mostraTempo2.setEditable(false);//desabilitar editar o campo
 		jPanel.add(mostraTempo2, gridBagConstraints);
+		
+		gridBagConstraints.gridwidth = 1;//iniciando em 1 para ficar os dois botão em uma coluna
+		
+		jButton.setPreferredSize(new Dimension(92, 25)); //tamanho do botão
+		gridBagConstraints.gridy ++;
+		jPanel.add(jButton, gridBagConstraints);
+		
+		jButton2.setPreferredSize(new Dimension(92, 25));
+		gridBagConstraints.gridx ++;
+		jPanel.add(jButton2, gridBagConstraints);
 		
 		add (jPanel, BorderLayout.WEST); //adicionando ao derLayout
 		
