@@ -21,20 +21,21 @@ public class ArrayVetor {
 		DisciplinaLista disciplina = new DisciplinaLista();
 		disciplina.setDisciplina("Matematica");
 		disciplina.setNota(notasMatematica);
-		disciplina.setNota(notasMatematica);
+		
 		
 		//adicionar a lista disciplina
-		aluno.getDisciplinas().add(disciplina);
-		aluno.getDisciplinas().add(disciplina);
+		//aluno.getDisciplinas().add(disciplina);
+		//aluno.getDisciplinas().add(disciplina);
 		
 		//Criação Disciplina2
+		
 		
 		DisciplinaLista disciplina2 = new DisciplinaLista();
 		disciplina2.setDisciplina("Português");
 		disciplina2.setNota(notasPortugues);
 		
 		//adicionando a lista disciplina2
-		aluno.getDisciplinas().add(disciplina2);
+		//aluno.getDisciplinas().add(disciplina2);
 		
 		//----------------------------------------------------
 		
@@ -44,7 +45,7 @@ public class ArrayVetor {
 		
 		arrayAlunos [0]= aluno;
 		
-		for( int i; i < arrayAlunos.length; i++) {
+		/*for( int i; i < arrayAlunos.length; i++) {
 			System.out.println("Node do aluno: "+arrayAlunos[i].getNome());
 			
 			for (DisciplinaLista disc : arrayAlunos[i].getDisciplinas()) {
@@ -53,7 +54,7 @@ public class ArrayVetor {
 			}
 			
 			
-			}
+			}*/
 	
 		
 	}
