@@ -2,6 +2,7 @@ package main;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -30,8 +31,16 @@ public class ComparandoDatas {
 		
 		calendar.add(Calendar.MONTH, 1);
 		
-		System.out.println("Somando o mês: " +new SimpleDateFormat("dd/MM;yyyy").format
+		System.out.println("Somando o mês: " +new SimpleDateFormat("dd/MM/yyyy").format
+	
 				(calendar.getTime()));
+		
+		System.out.println("==============Verificar Dias========================");
+		
+		
+		
 	}
+	
+	
 
 }

@@ -21,6 +21,8 @@ public class CalendarEmJava {
 		System.out.println("Data em formato simpleDateformat: "
 		+ simpleDateFormat.format(calendar.getTime()));
 		
+		
+		
 	}
 
 }
