@@ -2,4 +2,4 @@ Marcelo;marcelo@.br;25
 Mabel;marbel@.br;8
 Samuel;samuel@.br;6
 
-Thati;thati@.br; 31
+Thati;thati@.br;31
