@@ -26,7 +26,10 @@ public class DataApiJava {
 		System.out.println("Dia do mês: "+dataAtual.getDayOfMonth());
 		System.out.println("Dia do ano: "+dataAtual.getDayOfYear());
 		
-		Period periodo = Period.between(dataAtual, dataAntiga); //Contando periodo de dias
+		Period periodo = Period.between(dataAntiga, dataAtual); //Contando periodo de dias
+		System.out.println("Dias contados: "+ periodo.getDays());
+		
+		System.out.println("Mês Contados: "+periodo.getMonths());
 		
 		
 	}
