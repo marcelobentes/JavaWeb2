@@ -25,11 +25,11 @@ public class Arquivos {
 		pessoa3.setEmail("samuel@.br");
 		pessoa3.setIdade(6);
 		
-		File arquivo1 = new File("/home/marcelo/DESENVOLVIMENTO/WORKSPACE JAVAWEB/JavaWeb2/src/arquivo/arquivo1.txt");
+		File arquivo2 = new File("/home/marcelo/DESENVOLVIMENTO/WORKSPACE JAVAWEB/JavaWeb2/src/arquivo/arquivo2.csv");
 		
-		if (!arquivo1.exists()) {
+		if (!arquivo2.exists()) {
 			
-			arquivo1.createNewFile();
+			arquivo2.createNewFile();
 		}
 		
 		List<Pessoa> pessoas = new ArrayList<Pessoa>();
@@ -38,7 +38,7 @@ public class Arquivos {
 		pessoas.add(pessoa2);
 		pessoas.add(pessoa3);
 		
-		FileWriter escreverNoArquivo = new FileWriter(arquivo1);//criando o objeto para escrever
+		FileWriter escreverNoArquivo = new FileWriter(arquivo2);//criando o objeto para escrever
 		
 		for (Pessoa p : pessoas) {
 			
