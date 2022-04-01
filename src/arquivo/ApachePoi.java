@@ -16,7 +16,7 @@ public class ApachePoi {
 
 	public static void main(String[] args) throws IOException {
 		
-		File file = new File ("/home/marcelo/DESENVOLVIMENTO/WORKSPACE JAVAWEB/JavaWeb2/src/arquivo/arquivo_excel.xsl");
+		File file = new File ("/home/marcelo/DESENVOLVIMENTO/WORKSPACE JAVAWEB/JavaWeb2/src/arquivo/arquivo_excel.xls");
 	
 		
 		if(!file.exists() ) {
