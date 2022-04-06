@@ -32,6 +32,10 @@ public class Usuario implements Serializable{
 	public void setCpf(String cpf) {
 		this.cpf = cpf;
 	}
+	@Override
+	public String toString() {
+		return "Usuario [nome=" + nome + ", login=" + login + ", senha=" + senha + ", cpf=" + cpf + "]";
+	}
 	
 	
 
