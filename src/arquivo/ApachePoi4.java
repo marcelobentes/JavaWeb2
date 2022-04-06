@@ -16,7 +16,7 @@ public class ApachePoi4 {
 	public static void main(String[] args) throws IOException {
 		
 		//Lendo um arquivo xls
-		FileInputStream entrada = new FileInputStream("D:\\DESENVOLVIMENTO\\WORKSPACE\\JavaWeb-FullStack\\src\\arquivo\\arquivo_excel.xls");
+		FileInputStream entrada = new FileInputStream("D:\\DESENVOLVIMENTO\\WORKSPACE\\JavaWeb2\\src\\arquivo\\arquivo_excel.xls");
 		
 		HSSFWorkbook hssfWorkbook = new HSSFWorkbook(entrada);//prepara o arquivo do excel para leitura
 		HSSFSheet planilha = hssfWorkbook.getSheetAt(0);//pega a primeira planilha
